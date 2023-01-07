@@ -33,7 +33,3 @@ for i in word:
 
     counter += 1
 print(result)
-
-# strin = "dani"
-
-# print(strin[0:3])
