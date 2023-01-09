@@ -28,9 +28,9 @@ for i in clothesAndPrice:
         continue
     
     savePrice = prices
-    prices += prices * 0.4
+    prices += round(prices * 0.4, 2)
     listPrices.append(round(prices, 2))
-    profit += round(prices - savePrice)
+    profit += prices - savePrice
     newPrices += prices
 
 print(*listPrices)
