@@ -4,6 +4,7 @@ while(True):
     if(coffeeCounter > 5):
         print("You need extra sleep")
         extra = True
+        break
     event = input()
     if(event == "END"):
         if(extra == False):

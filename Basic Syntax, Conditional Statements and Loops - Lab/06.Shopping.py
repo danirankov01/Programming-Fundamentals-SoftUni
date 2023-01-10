@@ -1,13 +1,14 @@
 budget = int(input())
-output = False
+bought = False
 while(True):
     prices = input()
-    if(prices == "End"):
-        output = True
-        break
-    budget -= int(prices)
-    if(budget <= 0):
+    if(prices != "End" and budget - int(prices) < 0):
         print("You went in overdraft!")
         break
-if(output):
+    if(prices == "End"):
+        bought = True
+        break
+    budget -= int(prices)
+
+if(bought):
     print("You bought everything needed.")

@@ -13,6 +13,6 @@ for i in range(numberOfOrders):
     if(capsulesPerDay < 1 or capsulesPerDay > 2000):
         continue
     price += pricePerCapsule * capsulesPerDay * days
-    total += price
+    total += round(price, 2)
     print(f"The price for the coffee is: ${price:.2f}")
 print(f"Total: ${total:.2f}")
