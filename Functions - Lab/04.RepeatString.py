@@ -5,4 +5,4 @@ def repeat(text, number):
 
 text = input()
 number = int(input())
-print(repeat(text, number))
+repeat(text, number)
