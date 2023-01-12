@@ -28,9 +28,9 @@
 word = input().lower()
 counter = 0
 
-counter += word.count("sand")
-counter += word.count("water")
-counter += word.count("fish")
-counter += word.count("sun")
+counter += word.find("sand")
+counter += word.find("water")
+counter += word.find("fish")
+counter += word.find("sun")
 
 print(counter)
