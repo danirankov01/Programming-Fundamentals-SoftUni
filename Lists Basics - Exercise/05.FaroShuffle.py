@@ -11,22 +11,17 @@ last = deck[-1]
 deck.remove(deck[0])
 deck.remove(deck[-1])
 
-newDeck = []
-index = 0
-result = deck
 for i in range(shuffles):
-    for j in result:
-        if(index == len(deck) / 2):
-            break
-        tempDeck = []
-        tempDeck.append(result[index + 2])
-        tempDeck.append(result[index])
-        newDeck += tempDeck
-        index += 1
-    result = newDeck
-    newDeck = []
-    index = 0
 
-result.insert(0, first)
-result.append(last)
-print(result)
+    for j in range(len(deck)):
+        if(j % 2 == 0):
+            if(j + 3 <= len(deck)):
+                deck[j], deck[j + 2] = deck[j + 2], deck[j]
+                position = deck.index(deck[j])
+                element = deck[j + 2]
+                del deck[j + 2]
+                deck.insert(position + 1, element)
+
+deck.insert(0, first)
+deck.append(last)
+print(deck)

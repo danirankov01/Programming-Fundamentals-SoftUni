@@ -1,9 +1,7 @@
 inpt = input().split()
-teamA = 11
-teamB = 11
 
-teamAList = []
-teamBList = []
+teamAList = [int(x) for x in range(1, 12)]
+teamBList = [int(x) for x in range(1, 12)]
 
 sequenceOfCards = []
 terminated = False
@@ -11,34 +9,25 @@ terminated = False
 for i in inpt:
     sequenceOfCards.append(i)
 
-if(len(sequenceOfCards) > 0):
-    for i in sequenceOfCards:
-        teamNumber = i.split("-")
-        if(i[0] == "A"):
-            if(teamNumber[1] not in teamAList):
-                teamA -= 1
-                if(teamA < 7):
-                    print(f"Team A - {teamA}; Team B - {teamB}\nGame was terminated")
-                    terminated = True
-                    break
-                teamAList.append(i[2])
-        else:
-            if(teamNumber[1] not in teamBList):
-                teamB -= 1
-                if(teamB < 7):
-                    print(f"Team A - {teamA}; Team B - {teamB}\nGame was terminated")
-                    terminated = True
-                    break
-                teamBList.append(i[2])
-else:
-    print("Team A - 11; Team B - 11")
+for i in sequenceOfCards:
+    separate = i.split("-")
+    team = separate[0]
+    number = int(separate[1])
 
-if(len(sequenceOfCards) > 0 and terminated == False):
-    print(f"Team A - {teamA}; Team B - {teamB}")
+    if(team == "A"):
+        if(number in teamAList):
+            teamAList.remove(number)
+        if(len(teamAList) < 7):
+            terminated = True
+            break
 
+    elif(team == "B"):
+        if(number in teamBList):
+            teamBList.remove(number)
+        if(len(teamBList) < 7):
+            terminated = True
+            break
 
-
-
-# team = "A-10"
-# new = team.split("-")
-# print(new[1])
+print(f"Team A - {len(teamAList)}; Team B - {len(teamBList)}")
+if(terminated):
+    print("Game was terminated")

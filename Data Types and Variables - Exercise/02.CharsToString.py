@@ -1,8 +1,6 @@
-def receive():
-    a = input()
-    b = input()
-    c = input()
+a = input()
+b = input()
+c = input()
 
-    result = a + b + c
-    print(result)
-receive()
+result = a + b + c
+print(result)
