@@ -1,27 +1,21 @@
-inpt = input().split()
-shuffles = int(input())
-
-deck = []
-for i in inpt:
-    deck.append(i)
-
-first = deck[0]
-last = deck[-1]
-
-deck.remove(deck[0])
-deck.remove(deck[-1])
-
-for i in range(shuffles):
-
-    for j in range(len(deck)):
-        if(j % 2 == 0):
-            if(j + 3 <= len(deck)):
-                deck[j], deck[j + 2] = deck[j + 2], deck[j]
-                position = deck.index(deck[j])
-                element = deck[j + 2]
-                del deck[j + 2]
-                deck.insert(position + 1, element)
-
-deck.insert(0, first)
-deck.append(last)
-print(deck)
+line = list(input().split(' '))
+shuffle = int(input())
+ 
+first = line[0]
+last = line[len(line) - 1]
+ 
+line.remove(first)
+line.remove(last)
+ 
+for i in range(0, shuffle):
+    A = line[:len(line)//2]
+    B = line[len(line)//2:]
+    line = []
+ 
+    for j in range(0, len(A)):
+        line.append(B[j])
+        line.append(A[j])
+ 
+line.insert(0, first)
+line.append(last)
+print(line)
