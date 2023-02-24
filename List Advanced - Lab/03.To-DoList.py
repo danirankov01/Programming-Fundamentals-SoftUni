@@ -4,9 +4,11 @@ while(True):
     if(line == "End"):
         break
     result.append(line)
+
 sorting = sorted(result, key=lambda x: x[0])
 result = []
 wait = []
+
 for i in sorting:
     if(i[:2] == "10"):
         wait.append(i[3:])
